@@ -10,6 +10,7 @@ import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -35,6 +36,8 @@ public class EasyLevelFragment : Fragment() {
         R.drawable.card5,
         R.drawable.card6
     )
+
+    private var model: Communicator?=null
     var flippedCard: EasyFlipView? = null
     var RemainingTime: Long = 0
     var isPaused = false
@@ -67,6 +70,8 @@ public class EasyLevelFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        model= ViewModelProviders.of(activity!!).get(Communicator::class.java)
+
         val rootView =
             inflater.inflate(R.layout.fragment_easy_level, container, false)
         EasyLevelRecyclerView = rootView.findViewById(R.id.easylevelview)
@@ -108,6 +113,9 @@ public class EasyLevelFragment : Fragment() {
                         b!!.putInt("Time", time.toInt())
                         cancel()
                         onFinish()
+
+                        model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Easy")
+
                         val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                         transaction.replace(R.id.layoutFragment, WinFragment())
                         transaction.addToBackStack(null)
@@ -160,6 +168,7 @@ public class EasyLevelFragment : Fragment() {
                                     b!!.putString("Data", "win")
                                     time = ((Constants.EASY_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
                                     b!!.putInt("Time", time)
+                                    model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Easy")
                                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                                     transaction.replace(R.id.layoutFragment, WinFragment())
                                     transaction.addToBackStack(null)

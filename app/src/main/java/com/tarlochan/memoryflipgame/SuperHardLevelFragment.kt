@@ -52,6 +52,8 @@ public class SuperHardLevelFragment : Fragment() {
         R.drawable.card7,
         R.drawable.card8
     )
+
+    private var model: Communicator?=null
     var flippedCard: EasyFlipView? = null
     var RemainingTime: Long = 0
     var isPaused = false
@@ -123,6 +125,8 @@ public class SuperHardLevelFragment : Fragment() {
                         val time =
                             (Constants.SUPER_HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL
                         b!!.putInt("Time", time.toInt())
+
+                        model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Super Hard")
                         val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                         transaction.replace(R.id.layoutFragment, WinFragment())
                         transaction.addToBackStack(null)
@@ -177,6 +181,8 @@ public class SuperHardLevelFragment : Fragment() {
                                     time =
                                         ((Constants.SUPER_HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
                                     b!!.putInt("Time", time)
+
+                                    model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Super Hard")
                                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                                     transaction.replace(R.id.layoutFragment, WinFragment())
                                     transaction.addToBackStack(null)

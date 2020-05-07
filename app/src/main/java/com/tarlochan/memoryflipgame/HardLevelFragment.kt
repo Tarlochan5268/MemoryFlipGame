@@ -9,6 +9,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,6 +48,7 @@ public class HardLevelFragment : Fragment() {
         R.drawable.card7,
         R.drawable.card8
     )
+    private var model: Communicator?=null
     var flippedCard: EasyFlipView? = null
     var RemainingTime: Long = 0
     var isPaused = false
@@ -79,6 +81,7 @@ public class HardLevelFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        model= ViewModelProviders.of(activity!!).get(Communicator::class.java)
         val rootView =
             inflater.inflate(R.layout.fragment_hard_level, container, false)
         HardLevelRecyclerView = rootView.findViewById(R.id.hardlevelview)
@@ -118,6 +121,8 @@ public class HardLevelFragment : Fragment() {
                         val time =
                             (Constants.HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL
                         b!!.putInt("Time", time.toInt())
+
+                        model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Hard")
                         val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                         transaction.replace(R.id.layoutFragment, WinFragment())
                         transaction.addToBackStack(null)
@@ -172,6 +177,7 @@ public class HardLevelFragment : Fragment() {
                                     time =
                                         ((Constants.HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
                                     b!!.putInt("Time", time)
+                                    model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Hard")
                                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                                     transaction.replace(R.id.layoutFragment, WinFragment())
                                     transaction.addToBackStack(null)

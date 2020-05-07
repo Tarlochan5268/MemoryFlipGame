@@ -15,12 +15,13 @@
             android:id="@+id/txtHighScore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="33dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="14dp"
             android:text="High Score : 0 "
             android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtYourScore" />
 
@@ -29,13 +30,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="77dp"
+            android:layout_marginTop="42dp"
             android:layout_marginEnd="78dp"
-            android:layout_marginBottom="33dp"
             android:src="@drawable/cardback"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtHighScore" />
 
         <TextView
             android:id="@+id/textView3"
@@ -48,39 +49,51 @@
             android:textColor="@android:color/black"
             android:textSize="45dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView6"
+            app:layout_constraintBottom_toTopOf="@+id/txtMessage"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/txtMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="33dp"
-            android:layout_marginBottom="21dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
             android:text="Wow Congratulations you Won the Game"
             android:textAlignment="center"
             android:textColor="@android:color/holo_blue_light"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/txtYourScore"
+            app:layout_constraintBottom_toTopOf="@+id/txtLevel"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
         <TextView
+            android:id="@+id/txtLevel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:text="Level  :  "
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/txtYourScore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtMessage" />
+
+        <TextView
             android:id="@+id/txtYourScore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="6dp"
+            android:layout_marginBottom="5dp"
             android:text="Your Score : 0 "
             android:textAlignment="center"
             app:layout_constraintBottom_toTopOf="@+id/txtHighScore"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            app:layout_constraintTop_toBottomOf="@+id/txtLevel" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

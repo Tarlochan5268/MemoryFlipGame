@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,7 +26,9 @@ class WinFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        MusicPlayer(context).playSound("winner.mp3")
+
+
+
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
@@ -35,8 +40,33 @@ class WinFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        MusicPlayer(context).playSound("winner.mp3")
-        return inflater.inflate(R.layout.fragment_win, container, false)
+
+        val rootview = inflater.inflate(R.layout.fragment_win, container, false)
+
+        //MusicPlayer(context).playSound("winner.mp3")
+        val txtlevel= rootview.findViewById<View>(R.id.txtLevel) as TextView
+        val txtyourscore= rootview.findViewById<View>(R.id.txtYourScore) as TextView
+        val txthighscore= rootview.findViewById<View>(R.id.txtHighScore) as TextView
+
+        val model= ViewModelProviders.of(activity!!).get(Communicator::class.java)
+
+        model.level.observe(this, object : Observer<Any> {
+            override fun onChanged(o: Any?) {
+                txtlevel.text = "Level : "+o!!.toString()
+            }
+        })
+        model.yourScore.observe(this, object : Observer<Any> {
+            override fun onChanged(o: Any?) {
+                txtyourscore.text = "Your Score : "+o!!.toString()
+            }
+        })
+        model.HighScore.observe(this, object : Observer<Any> {
+            override fun onChanged(o: Any?) {
+                txthighscore.text = "High Score : "+o!!.toString()
+            }
+        })
+
+        return rootview
     }
 
     companion object {
