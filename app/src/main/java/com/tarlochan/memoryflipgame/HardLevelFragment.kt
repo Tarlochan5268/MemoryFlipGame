@@ -8,6 +8,7 @@ import android.os.Handler
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.TextView
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -117,6 +118,10 @@ public class HardLevelFragment : Fragment() {
                         val time =
                             (Constants.HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL
                         b!!.putInt("Time", time.toInt())
+                        val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                        transaction.replace(R.id.layoutFragment, WinFragment())
+                        transaction.addToBackStack(null)
+                        transaction.commit()
                         cancel()
                         onFinish()
                     }
@@ -127,6 +132,10 @@ public class HardLevelFragment : Fragment() {
                 if (count < Constants.HARD_NO_OF_CARDS) {
                     b!!.putString("Data", "lost")
                     b!!.putInt("Time", (Constants.HARD_TIME / Constants.TIMER_INTERVAL).toInt())
+                    val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                    transaction.replace(R.id.layoutFragment, LoseFragment())
+                    transaction.addToBackStack(null)
+                    transaction.commit()
                 }
                 //fragmentTransaction(b)
             }
@@ -163,6 +172,10 @@ public class HardLevelFragment : Fragment() {
                                     time =
                                         ((Constants.HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
                                     b!!.putInt("Time", time)
+                                    val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                                    transaction.replace(R.id.layoutFragment, WinFragment())
+                                    transaction.addToBackStack(null)
+                                    transaction.commit()
                                     cancel()
                                     onFinish()
                                 }
@@ -176,6 +189,10 @@ public class HardLevelFragment : Fragment() {
                                     "Time",
                                     (Constants.HARD_TIME / Constants.TIMER_INTERVAL).toInt()
                                 )
+                                val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                                transaction.replace(R.id.layoutFragment, LoseFragment())
+                                transaction.addToBackStack(null)
+                                transaction.commit()
                             }
                             //fragmentTransaction(b)
                         }

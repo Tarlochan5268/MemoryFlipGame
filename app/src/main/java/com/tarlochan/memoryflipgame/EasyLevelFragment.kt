@@ -9,6 +9,7 @@ import android.os.Handler
 import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -74,8 +75,8 @@ public class EasyLevelFragment : Fragment() {
         b!!.putInt("level", Constants.LEVEL_EASY)
 
         pref = context!!.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
+ bestScore = pref.getInt(Constants.EASY_HIGH_KEY,(Constants.EASY_TIME / Constants.TIMER_INTERVAL).toInt())
 
-        bestScore = pref.getInt(Constants.EASY_HIGH_KEY,(Constants.EASY_TIME / Constants.TIMER_INTERVAL).toInt())
         (rootView.findViewById<View>(R.id.bestEasy) as TextView).append(bestScore.toString() + "")
 
         val lm: RecyclerView.LayoutManager = GridLayoutManager(context, 3, LinearLayoutManager.VERTICAL, false)
@@ -107,6 +108,10 @@ public class EasyLevelFragment : Fragment() {
                         b!!.putInt("Time", time.toInt())
                         cancel()
                         onFinish()
+                        val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                        transaction.replace(R.id.layoutFragment, WinFragment())
+                        transaction.addToBackStack(null)
+                        transaction.commit()
                     }
                 }
             }
@@ -115,7 +120,12 @@ public class EasyLevelFragment : Fragment() {
                 if (count < Constants.EASY_NO_OF_CARDS) {
                     b!!.putString("Data", "lost")
                     b!!.putInt("Time", (Constants.EASY_TIME / Constants.TIMER_INTERVAL).toInt())
+                    val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                    transaction.replace(R.id.layoutFragment, LoseFragment())
+                    transaction.addToBackStack(null)
+                    transaction.commit()
                 }
+
                 //fragmentTransaction(b)
             }
         }.start()
@@ -150,6 +160,10 @@ public class EasyLevelFragment : Fragment() {
                                     b!!.putString("Data", "win")
                                     time = ((Constants.EASY_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
                                     b!!.putInt("Time", time)
+                                    val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                                    transaction.replace(R.id.layoutFragment, WinFragment())
+                                    transaction.addToBackStack(null)
+                                    transaction.commit()
                                     cancel()
                                     onFinish()
                                 }
@@ -163,7 +177,12 @@ public class EasyLevelFragment : Fragment() {
                                     "Time",
                                     (Constants.EASY_TIME / Constants.TIMER_INTERVAL).toInt()
                                 )
+                                val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                                transaction.replace(R.id.layoutFragment, LoseFragment())
+                                transaction.addToBackStack(null)
+                                transaction.commit()
                             }
+
                             //fragmentTransaction(b)
                         }
                     }.start()
