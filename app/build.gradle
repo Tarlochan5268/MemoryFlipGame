@@ -39,4 +39,5 @@ dependencies {
     implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:2.0.5'
     implementation 'nl.dionsegijn:konfetti:1.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
 }
