@@ -37,23 +37,33 @@ public class ModeSelection : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val rootView =  inflater.inflate(R.layout.fragment_mode_selection, container, false)
-        var button: Button =  rootView.findViewById<Button>(R.id.btneasy)
-        button.setOnClickListener{
+        var btneasy: Button =  rootView.findViewById<Button>(R.id.btneasy)
+        btneasy.setOnClickListener{
             val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
             transaction.replace(R.id.layoutFragment, EasyLevelFragment())
             transaction.addToBackStack(null)
             transaction.commit()
         }
+
+        var btnhard: Button =  rootView.findViewById<Button>(R.id.btnhard)
+        btnhard.setOnClickListener{
+            val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.layoutFragment, HardLevelFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+        var btnsuperhard: Button =  rootView.findViewById<Button>(R.id.btnsuperhard)
+        btnsuperhard.setOnClickListener{
+            val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.layoutFragment, SuperHardLevelFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+
+
         return rootView
     }
 
-
-    private fun fragmentTrasaction(f: Fragment) {
-        val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
-        //transaction.replace(R.id.nav_host_fragment, f)
-        transaction.addToBackStack(null)
-        transaction.commit()
-    }
 
     companion object {
         /**
