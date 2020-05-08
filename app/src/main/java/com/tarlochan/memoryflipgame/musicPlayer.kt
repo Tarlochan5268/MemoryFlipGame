@@ -5,6 +5,7 @@ import android.media.MediaPlayer
 
 class MusicPlayer(var ctx: Context?) {
     var player: MediaPlayer? = null
+
     fun playSound(fileName: String?) {
         player = MediaPlayer()
         try {

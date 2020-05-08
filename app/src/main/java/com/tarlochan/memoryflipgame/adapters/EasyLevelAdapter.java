@@ -25,7 +25,7 @@ public class EasyLevelAdapter extends RecyclerView.Adapter<EasyLevelAdapter.View
     @Override
     public EasyLevelAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card,parent,false);
-        view.setMinimumWidth(parent.getMeasuredWidth() / 3);
+        //view.setMinimumWidth(parent.getMeasuredWidth() / 3);
         return new ViewHolder(view);
     }
 
@@ -46,6 +46,7 @@ public class EasyLevelAdapter extends RecyclerView.Adapter<EasyLevelAdapter.View
         public ViewHolder(View itemView) {
             super(itemView);
             cardFr = itemView.findViewById(R.id.cardfront);
+            cardFr.setAdjustViewBounds(true);
         }
     }
 }

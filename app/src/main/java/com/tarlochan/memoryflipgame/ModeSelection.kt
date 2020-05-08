@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,6 +38,13 @@ public class ModeSelection : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val rootView =  inflater.inflate(R.layout.fragment_mode_selection, container, false)
+        val btnBack : Button = rootView.findViewById<View>(R.id.btnBack) as Button
+        btnBack.setOnClickListener{
+            val fm: FragmentManager? = fragmentManager
+            if (fm != null) {
+                fm.popBackStack()
+            }
+        }
         var btneasy: Button =  rootView.findViewById<Button>(R.id.btneasy)
         btneasy.setOnClickListener{
             val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()

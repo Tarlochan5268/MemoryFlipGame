@@ -87,11 +87,12 @@ public class HardLevelFragment : Fragment() {
         HardLevelRecyclerView = rootView.findViewById(R.id.hardlevelview)
 
         b = Bundle()
-        b!!.putInt("level", Constants.LEVEL_HARD)
+        //b!!.putInt("level", Constants.LEVEL_HARD)
 
         pref = context!!.getSharedPreferences(Constants.PREF_NAME, 0)
 
-        bestScore = pref.getInt(Constants.HARD_HIGH_KEY,(Constants.HARD_TIME / Constants.TIMER_INTERVAL).toInt())
+        //bestScore = pref.getInt(Constants.HARD_HIGH_KEY,(Constants.HARD_TIME / Constants.TIMER_INTERVAL).toInt())
+        bestScore = pref.getString(Constants.HARD_HIGH_KEY,"42")!!.toInt()
         (rootView.findViewById<View>(R.id.bestHard) as TextView).append(bestScore.toString() + "")
 
         val lm: RecyclerView.LayoutManager = GridLayoutManager(context, 4, LinearLayoutManager.VERTICAL, false)
@@ -117,10 +118,10 @@ public class HardLevelFragment : Fragment() {
                         "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
                     RemainingTime = millisUntilFinished
                     if (count == Constants.HARD_NO_OF_CARDS) {
-                        b!!.putString("Data", "win")
+                        //b!!.putString("Data", "win")
                         val time =
                             (Constants.HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL
-                        b!!.putInt("Time", time.toInt())
+                        //b!!.putInt("Time", time.toInt())
 
                         model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Hard")
                         val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
@@ -135,8 +136,8 @@ public class HardLevelFragment : Fragment() {
 
             override fun onFinish() {
                 if (count < Constants.HARD_NO_OF_CARDS) {
-                    b!!.putString("Data", "lost")
-                    b!!.putInt("Time", (Constants.HARD_TIME / Constants.TIMER_INTERVAL).toInt())
+                    //b!!.putString("Data", "lost")
+                    //b!!.putInt("Time", (Constants.HARD_TIME / Constants.TIMER_INTERVAL).toInt())
                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                     transaction.replace(R.id.layoutFragment, LoseFragment())
                     transaction.addToBackStack(null)
@@ -173,10 +174,11 @@ public class HardLevelFragment : Fragment() {
                                     "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
                                 RemainingTime = millisUntilFinished
                                 if (count == Constants.HARD_NO_OF_CARDS) {
-                                    b!!.putString("Data", "win")
+                                    //b!!.putString("Data", "win")
                                     time =
                                         ((Constants.HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
-                                    b!!.putInt("Time", time)
+                                    //b!!.putInt("Time", time)
+
                                     model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Hard")
                                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                                     transaction.replace(R.id.layoutFragment, WinFragment())
@@ -190,11 +192,8 @@ public class HardLevelFragment : Fragment() {
 
                         override fun onFinish() {
                             if (count < Constants.HARD_NO_OF_CARDS) {
-                                b!!.putString("Data", "lost")
-                                b!!.putInt(
-                                    "Time",
-                                    (Constants.HARD_TIME / Constants.TIMER_INTERVAL).toInt()
-                                )
+                                //b!!.putString("Data", "lost")
+                                //b!!.putInt( "Time", (Constants.HARD_TIME / Constants.TIMER_INTERVAL).toInt() )
                                 val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                                 transaction.replace(R.id.layoutFragment, LoseFragment())
                                 transaction.addToBackStack(null)
@@ -252,7 +251,7 @@ public class HardLevelFragment : Fragment() {
                                                 count += 2
                                                 score++
                                                 (rootView.findViewById<View>(R.id.hardlevelScore) as TextView).text =
-                                                    "Score : " + score
+                                                    "Match : " + score
                                                 for (i in 0 until HardLevelRecyclerView.childCount) {
                                                     val child1 =
                                                         HardLevelRecyclerView.getChildAt(i) as EasyFlipView

@@ -1,22 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/layoutFragment"
-    tools:context=".EasyLevelFragment">
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EasyLevelFragment"
+    android:background="@android:color/white"
     android:padding="20dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Best time : 0:"
+        android:text="Best time : "
         android:fontFamily="sans-serif-light"
         android:textColor="#000"
         android:id="@+id/bestEasy"
@@ -25,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score: 0"
+        android:text="Match : 0"
         android:paddingLeft="20dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/easylevelScore"
@@ -54,4 +49,3 @@
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
-</FrameLayout>

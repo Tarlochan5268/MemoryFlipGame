@@ -13,7 +13,8 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/card1"
+        android:src="@drawable/card5"
+        android:padding="12dp"
         android:id="@+id/cardfront"/>
     <ImageView
         android:layout_width="wrap_content"

@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Best time : 0:"
+        android:text="Best time : "
         android:fontFamily="sans-serif-light"
         android:textColor="#000"
         android:id="@+id/bestHard"
@@ -18,7 +18,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Score: 0"
+        android:text="Match : 0"
         android:paddingLeft="20dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/hardlevelScore"

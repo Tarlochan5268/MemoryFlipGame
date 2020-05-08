@@ -77,10 +77,10 @@ public class EasyLevelFragment : Fragment() {
         EasyLevelRecyclerView = rootView.findViewById(R.id.easylevelview)
 
         b = Bundle()
-        b!!.putInt("level", Constants.LEVEL_EASY)
+        //b!!.putInt("level", Constants.LEVEL_EASY)
 
         pref = context!!.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
- bestScore = pref.getInt(Constants.EASY_HIGH_KEY,(Constants.EASY_TIME / Constants.TIMER_INTERVAL).toInt())
+        bestScore = pref.getString(Constants.EASY_HIGH_KEY,"32")!!.toInt()
 
         (rootView.findViewById<View>(R.id.bestEasy) as TextView).append(bestScore.toString() + "")
 
@@ -107,10 +107,10 @@ public class EasyLevelFragment : Fragment() {
                         "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
                     RemainingTime = millisUntilFinished
                     if (count == Constants.EASY_NO_OF_CARDS) {
-                        b!!.putString("Data", "win")
+                        //b!!.putString("Data", "win")
                         val time =
                             (Constants.EASY_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL
-                        b!!.putInt("Time", time.toInt())
+                        //b!!.putInt("Time", time.toInt())
                         cancel()
                         onFinish()
 
@@ -126,8 +126,8 @@ public class EasyLevelFragment : Fragment() {
 
             override fun onFinish() {
                 if (count < Constants.EASY_NO_OF_CARDS) {
-                    b!!.putString("Data", "lost")
-                    b!!.putInt("Time", (Constants.EASY_TIME / Constants.TIMER_INTERVAL).toInt())
+                    //b!!.putString("Data", "lost")
+                    //b!!.putInt("Time", (Constants.EASY_TIME / Constants.TIMER_INTERVAL).toInt())
                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                     transaction.replace(R.id.layoutFragment, LoseFragment())
                     transaction.addToBackStack(null)
@@ -165,9 +165,10 @@ public class EasyLevelFragment : Fragment() {
                                     "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
                                 RemainingTime = millisUntilFinished
                                 if (count == Constants.EASY_NO_OF_CARDS) {
-                                    b!!.putString("Data", "win")
+                                    //b!!.putString("Data", "win")
                                     time = ((Constants.EASY_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
-                                    b!!.putInt("Time", time)
+                                    //b!!.putInt("Time", time)
+
                                     model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Easy")
                                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                                     transaction.replace(R.id.layoutFragment, WinFragment())
@@ -181,11 +182,9 @@ public class EasyLevelFragment : Fragment() {
 
                         override fun onFinish() {
                             if (count < Constants.EASY_NO_OF_CARDS) {
-                                b!!.putString("Data", "lost")
-                                b!!.putInt(
-                                    "Time",
-                                    (Constants.EASY_TIME / Constants.TIMER_INTERVAL).toInt()
-                                )
+                                //b!!.putString("Data", "lost")
+                                //b!!.putInt("Time", (Constants.EASY_TIME / Constants.TIMER_INTERVAL).toInt())
+
                                 val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                                 transaction.replace(R.id.layoutFragment, LoseFragment())
                                 transaction.addToBackStack(null)
@@ -244,7 +243,7 @@ public class EasyLevelFragment : Fragment() {
                                                 count += 2
                                                 score++
                                                 (rootView.findViewById<View>(R.id.easylevelScore) as TextView).text =
-                                                    "Score : " + score
+                                                    "Match : " + score
                                                 for (i in 0 until EasyLevelRecyclerView.childCount) {
                                                     val child1 =
                                                         EasyLevelRecyclerView.getChildAt(i) as EasyFlipView
@@ -283,9 +282,6 @@ public class EasyLevelFragment : Fragment() {
 
             override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {}
         })
-
-
-
         return rootView
     }
 }

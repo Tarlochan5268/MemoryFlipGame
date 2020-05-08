@@ -91,11 +91,11 @@ public class SuperHardLevelFragment : Fragment() {
         SuperHardLevelRecyclerView = rootView.findViewById(R.id.superhardlevelview)
 
         b = Bundle()
-        b!!.putInt("level", Constants.LEVEL_SUPER_HARD)
+        //b!!.putInt("level", Constants.LEVEL_SUPER_HARD)
 
         pref = context!!.getSharedPreferences(Constants.PREF_NAME, 0)
-
-        bestScore = pref.getInt(Constants.SUPER_HARD_HIGH_KEY,(Constants.SUPER_HARD_TIME / Constants.TIMER_INTERVAL).toInt())
+        bestScore = pref.getString(Constants.SUPER_HARD_HIGH_KEY,"52")!!.toInt()
+        //bestScore = pref.getInt(Constants.SUPER_HARD_HIGH_KEY,(Constants.SUPER_HARD_TIME / Constants.TIMER_INTERVAL).toInt())
         (rootView.findViewById<View>(R.id.bestSuperHard) as TextView).append(bestScore.toString() + "")
 
         val lm: RecyclerView.LayoutManager = GridLayoutManager(context, 5, LinearLayoutManager.VERTICAL, false)
@@ -121,10 +121,10 @@ public class SuperHardLevelFragment : Fragment() {
                         "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
                     RemainingTime = millisUntilFinished
                     if (count == Constants.SUPER_HARD_NO_OF_CARDS) {
-                        b!!.putString("Data", "win")
+                        //b!!.putString("Data", "win")
                         val time =
                             (Constants.SUPER_HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL
-                        b!!.putInt("Time", time.toInt())
+                        //b!!.putInt("Time", time.toInt())
 
                         model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Super Hard")
                         val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
@@ -139,8 +139,8 @@ public class SuperHardLevelFragment : Fragment() {
 
             override fun onFinish() {
                 if (count < Constants.SUPER_HARD_NO_OF_CARDS) {
-                    b!!.putString("Data", "lost")
-                    b!!.putInt("Time", (Constants.SUPER_HARD_TIME / Constants.TIMER_INTERVAL).toInt())
+                    //b!!.putString("Data", "lost")
+                    //b!!.putInt("Time", (Constants.SUPER_HARD_TIME / Constants.TIMER_INTERVAL).toInt())
                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                     transaction.replace(R.id.layoutFragment, LoseFragment())
                     transaction.addToBackStack(null)
@@ -177,10 +177,10 @@ public class SuperHardLevelFragment : Fragment() {
                                     "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
                                 RemainingTime = millisUntilFinished
                                 if (count == Constants.SUPER_HARD_NO_OF_CARDS) {
-                                    b!!.putString("Data", "win")
+                                    //b!!.putString("Data", "win")
                                     time =
                                         ((Constants.SUPER_HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
-                                    b!!.putInt("Time", time)
+                                    //b!!.putInt("Time", time)
 
                                     model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Super Hard")
                                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
@@ -195,11 +195,9 @@ public class SuperHardLevelFragment : Fragment() {
 
                         override fun onFinish() {
                             if (count < Constants.SUPER_HARD_NO_OF_CARDS) {
-                                b!!.putString("Data", "lost")
-                                b!!.putInt(
-                                    "Time",
-                                    (Constants.SUPER_HARD_TIME / Constants.TIMER_INTERVAL).toInt()
-                                )
+                                //b!!.putString("Data", "lost")
+                                //b!!.putInt("Time", (Constants.SUPER_HARD_TIME / Constants.TIMER_INTERVAL).toInt())
+
                                 val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
                                 transaction.replace(R.id.layoutFragment, LoseFragment())
                                 transaction.addToBackStack(null)
@@ -257,7 +255,7 @@ public class SuperHardLevelFragment : Fragment() {
                                                 count += 2
                                                 score++
                                                 (rootView.findViewById<View>(R.id.superhardlevelScore) as TextView).text =
-                                                    "Score : " + score
+                                                    "Match : " + score
                                                 for (i in 0 until SuperHardLevelRecyclerView.childCount) {
                                                     val child1 =
                                                         SuperHardLevelRecyclerView.getChildAt(i) as EasyFlipView

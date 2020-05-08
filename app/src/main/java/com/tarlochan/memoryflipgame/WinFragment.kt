@@ -1,19 +1,29 @@
 package com.tarlochan.memoryflipgame
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import org.w3c.dom.Text
+import kotlin.math.log
+import android.widget.Toast.makeText as makeText1
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
+public lateinit var pref: SharedPreferences
 /**
  * A simple [Fragment] subclass.
  * Use the [WinFragment.newInstance] factory method to
@@ -41,32 +51,77 @@ class WinFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
 
-        val rootview = inflater.inflate(R.layout.fragment_win, container, false)
 
-        //MusicPlayer(context).playSound("winner.mp3")
+        val rootview = inflater.inflate(R.layout.fragment_win, container, false)
+        val btnHome : Button = rootview.findViewById<View>(R.id.btnHome) as Button
+        btnHome.setOnClickListener{
+                val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                transaction.replace(R.id.layoutFragment, Home())
+                transaction.addToBackStack(null)
+                transaction.commit()
+        }
+
+        //play sound
+        MusicPlayer(context).playSound("winner.mp3")
         val txtlevel= rootview.findViewById<View>(R.id.txtLevel) as TextView
         val txtyourscore= rootview.findViewById<View>(R.id.txtYourScore) as TextView
         val txthighscore= rootview.findViewById<View>(R.id.txtHighScore) as TextView
-
+        val txtmessage = rootview.findViewById<View>(R.id.txtMessage) as TextView
+        var level : String = ""
+        //using models to get data from previous fragments
         val model= ViewModelProviders.of(activity!!).get(Communicator::class.java)
 
         model.level.observe(this, object : Observer<Any> {
             override fun onChanged(o: Any?) {
+                level = o!!.toString()
+                Log.d("level : ",level)
                 txtlevel.text = "Level : "+o!!.toString()
             }
         })
+
+        var yourscoreInt:Int = 20
+        var highscoreInt:Int = 20
+
         model.yourScore.observe(this, object : Observer<Any> {
             override fun onChanged(o: Any?) {
-                txtyourscore.text = "Your Score : "+o!!.toString()
+                yourscoreInt = 30
+                Log.d("Inside u score : ",yourscoreInt.toString())
+                txtyourscore.text = o!!.toString()
+                Log.d("Before txtyourscore : ",txtyourscore.text.toString())
+
+                yourscoreInt = txtyourscore.text.toString().toInt()
+                txtyourscore.text = "Your Score : "+o!!.toString()+" seconds"
+                //strange issue conversion of string to int not working weirdly
+                Log.d("txtyourscore from o : ",o!!.toString())
+
             }
         })
+
         model.HighScore.observe(this, object : Observer<Any> {
             override fun onChanged(o: Any?) {
-                txthighscore.text = "High Score : "+o!!.toString()
+                highscoreInt = 30
+                Log.d("Inside high score : ",highscoreInt.toString())
+                txthighscore.text = o!!.toString()
+                Log.d("Before txthighscore : ",txthighscore.text.toString())
+
+                highscoreInt = txthighscore.text.toString().toInt()
+                txthighscore.text = "High Score : "+o!!.toString()+" seconds"
+                //strange issue conversion of string to int not working weirdly
+                Log.d("txthighscore from o : ",o!!.toString())
+
+                if(yourscoreInt<highscoreInt)
+                {
+                    pref = context!!.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
+                    val editor:SharedPreferences.Editor = pref.edit()
+                    editor.putString(Constants.EASY_HIGH_KEY,yourscoreInt.toString())
+                    editor.apply()
+                    txtmessage.text = "Congratulations you won the Game in "+level+" and also broke the previous high score record"
+                }
             }
         })
 
         return rootview
+
     }
 
     companion object {
