@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
+import android.util.Log
 import android.view.*
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -14,14 +15,19 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.tarlochan.memoryflipgame.DataStorage.Products
 import com.tarlochan.memoryflipgame.adapters.EasyLevelAdapter
 import com.wajahatkarim3.easyflipview.EasyFlipView
 import com.wajahatkarim3.easyflipview.EasyFlipView.OnFlipAnimationListener
 import java.util.*
+import kotlin.collections.ArrayList
 
 public class EasyLevelFragment : Fragment() {
     public lateinit var EasyLevelRecyclerView: RecyclerView
-    var cards: ArrayList<Int>? = null
+    //var cards: ArrayList<Int>? = null
+    var cards: ArrayList<Products>? = null
+    var CARDS = cardSupplyEasy()
+    /*
     var CARDS = intArrayOf(
         R.drawable.card1,
         R.drawable.card2,
@@ -36,6 +42,31 @@ public class EasyLevelFragment : Fragment() {
         R.drawable.card5,
         R.drawable.card6
     )
+     */
+    fun cardSupplyEasy(): ArrayList<Products>?
+    {
+        var CardsReturnlisttTemp: ArrayList<Products>? = ArrayList()
+        var count:Int = 0
+        for(card in MainActivity.mProductsList!!)
+        {
+            if(count<6)
+            {
+                CardsReturnlisttTemp!!.add(card)
+                count++
+            }
+        }
+        Log.d("Temp Card Supply Size:", CardsReturnlisttTemp!!.size.toString())
+
+        var CardsReturnlist: ArrayList<Products>? = java.util.ArrayList(CardsReturnlisttTemp)
+
+        Log.d("1 Card Supply Size : ", CardsReturnlist!!.size.toString())
+        for(card in CardsReturnlisttTemp!!)
+        {
+                CardsReturnlist!!.add(card)
+        }
+        Log.d("2 Card Supply Size : ", CardsReturnlist!!.size.toString())
+        return CardsReturnlist
+    }
 
     private var model: Communicator?=null
     var flippedCard: EasyFlipView? = null
@@ -49,7 +80,7 @@ public class EasyLevelFragment : Fragment() {
     var score = 0
     var bestScore = 0
 
-    fun shuffle(cards: IntArray, n: Int) {
+    fun shuffle(cards: ArrayList<Products>, n: Int) {
         val random = Random()
         for (i in 0 until n) {
             val r = random.nextInt(n - i)
@@ -88,9 +119,10 @@ public class EasyLevelFragment : Fragment() {
         EasyLevelRecyclerView.setLayoutManager(lm)
         cards = ArrayList()
         // TODO: card shuffle here
-        shuffle(CARDS, Constants.EASY_NO_OF_CARDS)
-        shuffle(CARDS, Constants.EASY_NO_OF_CARDS) // double shuffle
-        for (card in CARDS) {
+        shuffle(this!!.CARDS!!, Constants.EASY_NO_OF_CARDS)
+        shuffle(this!!.CARDS!!, Constants.EASY_NO_OF_CARDS) // double shuffle
+
+        for (card in this!!.CARDS!!) {
             cards!!.add(card)
         }
         EasyLevelRecyclerView.setAdapter(EasyLevelAdapter(cards))
