@@ -10,6 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
+import com.tarlochan.memoryflipgame.DataStorage.ProductImg;
+import com.tarlochan.memoryflipgame.DataStorage.Products;
+import com.tarlochan.memoryflipgame.MainActivity;
 import com.tarlochan.memoryflipgame.R;
 
 import java.util.ArrayList;
@@ -17,9 +21,14 @@ import java.util.ArrayList;
 public class EasyLevelAdapter extends RecyclerView.Adapter<EasyLevelAdapter.ViewHolder> {
 
     private ArrayList<Integer> cardFront;
+    private  ArrayList<Products> mProductList = MainActivity.Companion.getMProductsList();
 
-    public EasyLevelAdapter(ArrayList<Integer> cardFront) {
-        this.cardFront = cardFront;
+    //public EasyLevelAdapter(ArrayList<Integer> cardFront) {
+        //this.cardFront = cardFront;
+    //}
+
+    public EasyLevelAdapter(ArrayList<Products> mProductList) {
+        this.mProductList = mProductList;
     }
 
     @Override
@@ -31,12 +40,22 @@ public class EasyLevelAdapter extends RecyclerView.Adapter<EasyLevelAdapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.cardFr.setImageResource(cardFront.get(position));
+        Products mProducts = mProductList.get(position);
+        String imgURL = mProducts.getProductImg().getImagelink();
+        Glide.with(holder.cardFr)  //2
+                .load(imgURL) //3
+                .centerCrop() //4
+                .placeholder(R.drawable.img_placeholder) //5
+                .error(R.drawable.img_notload) //6
+                .fallback(R.drawable.img_placeholder) //7
+                .into(holder.cardFr);
+        //holder.cardFr.setImageResource(cardFront.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return cardFront.size();
+        //return cardFront.size();
+        return mProductList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
