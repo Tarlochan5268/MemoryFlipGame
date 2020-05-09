@@ -15,13 +15,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="About"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
+            app:layout_constraintBottom_toTopOf="@+id/btnExit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnLeaderboard" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnExit"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:text="Exit"

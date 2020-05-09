@@ -53,6 +53,11 @@ public class Home : Fragment() {
             transaction.commit()
         }
 
+        val btnExit : Button = rootView.findViewById<View>(R.id.btnExit) as Button
+        btnExit.setOnClickListener{
+            activity!!.finish()
+            //Closes the Program
+        }
         return rootView
     }
 

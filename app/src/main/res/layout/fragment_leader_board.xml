@@ -20,6 +20,7 @@
         android:fontFamily="sans-serif-black"
         android:text="High Scores"
         android:textAlignment="center"
+        android:textColor="@android:color/background_light"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
