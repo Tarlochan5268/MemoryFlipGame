@@ -209,6 +209,14 @@ public class HardLevelFragment : Fragment() {
                     isCancelled = true
                     fragmentManager!!.popBackStack()
                 }
+                pause.setNeutralButton("Shuffle")
+                {
+                        dialog, which ->
+                    val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                    transaction.replace(R.id.layoutFragment, HardLevelFragment())
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                }
                 pause.show()
                 return@OnKeyListener true
             }

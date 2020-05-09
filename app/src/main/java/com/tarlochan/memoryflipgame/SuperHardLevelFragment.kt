@@ -215,6 +215,14 @@ public class SuperHardLevelFragment : Fragment() {
                     isCancelled = true
                     fragmentManager!!.popBackStack()
                 }
+                pause.setNeutralButton("Shuffle")
+                {
+                        dialog, which ->
+                    val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                    transaction.replace(R.id.layoutFragment, SuperHardLevelFragment())
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                }
                 pause.show()
                 return@OnKeyListener true
             }
