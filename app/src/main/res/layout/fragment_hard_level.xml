@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HardLevelFragment"
-    android:background="@android:color/white"
+    android:background="@android:color/black"
     android:padding="20dp">
 
     <TextView
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Best time : "
         android:fontFamily="sans-serif-light"
-        android:textColor="#000"
+        android:textColor= "@android:color/white"
         android:id="@+id/bestHard"
         android:layout_alignParentStart="true"
         android:textSize="18dp"/>
@@ -45,6 +45,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="100dp"
         android:id="@+id/hardlevelview"
+        android:background="@android:color/white"
         android:layout_centerHorizontal="true" />
 
 

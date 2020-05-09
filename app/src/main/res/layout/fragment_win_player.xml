@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/layoutFragment"
+    tools:context=".LoseFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".WinFragment">
+
+        <Button
+            android:id="@+id/btnHome"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@android:color/transparent"
+            android:foreground="@mipmap/home"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.002" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="254dp"
+            android:layout_height="343dp"
+            android:layout_marginStart="77dp"
+            android:layout_marginEnd="78dp"
+            android:layout_marginBottom="124dp"
+            android:src="@drawable/cardback"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Flip Card Game"
+            android:textAlignment="center"
+            android:textColor="@android:color/primary_text_dark"
+            android:textSize="45dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.152" />
+
+        <TextView
+            android:id="@+id/txtMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wow Congratulations Player 1 Won the Game"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_blue_light"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnHome"
+            app:layout_constraintVertical_bias="0.303" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

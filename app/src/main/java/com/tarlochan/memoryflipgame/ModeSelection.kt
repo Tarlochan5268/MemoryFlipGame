@@ -67,7 +67,13 @@ public class ModeSelection : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
-
+        var btntwoplayer: Button =  rootView.findViewById<Button>(R.id.btntwoplayer)
+        btntwoplayer.setOnClickListener{
+            val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.layoutFragment, TwoPlayer())
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
 
         return rootView
     }

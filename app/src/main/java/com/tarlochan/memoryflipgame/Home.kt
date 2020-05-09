@@ -52,6 +52,14 @@ public class Home : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
+        val btnAbout : Button = rootView.findViewById<View>(R.id.button4) as Button
+        btnAbout.setOnClickListener{
+            val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+            transaction.replace(R.id.layoutFragment, AboutFragment())
+            transaction.addToBackStack(null)
+            transaction.commit()
+            //Closes the Program
+        }
 
         val btnExit : Button = rootView.findViewById<View>(R.id.btnExit) as Button
         btnExit.setOnClickListener{

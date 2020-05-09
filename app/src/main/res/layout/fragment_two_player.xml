@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TwoPlayer">
+    tools:context=".TwoPlayer"
+    android:background="@android:color/black"
+    android:padding="20dp">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player 1 Turn"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@android:color/white"
+        android:id="@+id/player1"
+        android:layout_alignParentStart="true"
+        android:textSize="18dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Match : 0"
+        android:paddingLeft="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/player1levelScore"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20dp"
+        />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:text="Time : 0:15"
+        android:id="@+id/twoplayerlevelcounter"
+        android:fontFamily="sans-serif-light"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@android:color/white"
+        android:id="@+id/twoplayerlevelview"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="60dp"
+        android:layout_below="@id/twoplayerlevelview">
+        <TextView
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player 2"
+            android:fontFamily="sans-serif-light"
+            android:textColor="@android:color/white"
+            android:id="@+id/player2"
+            android:textSize="18dp"
+            android:paddingRight="80dp"/>
+
+        <TextView
+            android:id="@+id/player2levelScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:paddingLeft="20dp"
+            android:text="Match : 0"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

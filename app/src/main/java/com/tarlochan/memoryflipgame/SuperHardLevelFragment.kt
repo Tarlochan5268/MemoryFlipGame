@@ -128,7 +128,7 @@ public class SuperHardLevelFragment : Fragment() {
                     RemainingTime = millisUntilFinished
                     if (count == Constants.SUPER_HARD_NO_OF_CARDS) {
                         //b!!.putString("Data", "win")
-                        time = ((Constants.EASY_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
+                        time = ((Constants.SUPER_HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
                         //b!!.putInt("Time", time.toInt())
 
                         model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Super Hard")
