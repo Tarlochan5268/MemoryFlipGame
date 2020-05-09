@@ -78,13 +78,13 @@ class WinFragment : Fragment() {
                 txtlevel.text = "Level : "+o!!.toString()
             }
         })
-
+        Log.d("level outside : ",level)
         var yourscoreInt:Int = 20
         var highscoreInt:Int = 20
 
         model.yourScore.observe(this, object : Observer<Any> {
             override fun onChanged(o: Any?) {
-                yourscoreInt = 30
+                //yourscoreInt = 30
                 Log.d("Inside u score : ",yourscoreInt.toString())
                 txtyourscore.text = o!!.toString()
                 Log.d("Before txtyourscore : ",txtyourscore.text.toString())
@@ -99,7 +99,7 @@ class WinFragment : Fragment() {
 
         model.HighScore.observe(this, object : Observer<Any> {
             override fun onChanged(o: Any?) {
-                highscoreInt = 30
+                //highscoreInt = 30
                 Log.d("Inside high score : ",highscoreInt.toString())
                 txthighscore.text = o!!.toString()
                 Log.d("Before txthighscore : ",txthighscore.text.toString())
@@ -113,18 +113,23 @@ class WinFragment : Fragment() {
                 {
                     pref = context!!.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
                     val editor:SharedPreferences.Editor = pref.edit()
-                    if (txtlevel.equals("Easy"))
+                    if (txtlevel.text.trim().endsWith("Easy"))
                     {
+                        //Log.d("txtLevel Equals Easy :",txtlevel.equals("Easy").toString())
                         editor.putString(Constants.EASY_HIGH_KEY,yourscoreInt.toString())
-                    }
-                    else if (txtlevel.equals("Hard"))
+                    }else if (txtlevel.text.trim().endsWith("Super Hard"))
                     {
-                        editor.putString(Constants.HARD_HIGH_KEY,yourscoreInt.toString())
-                    }
-                    else if (txtlevel.equals("Super Hard"))
-                    {
+                        //Log.d("txtLevel Equals Shard:",txtlevel.equals("Super Hard").toString())
                         editor.putString(Constants.SUPER_HARD_HIGH_KEY,yourscoreInt.toString())
                     }
+                    else if (txtlevel.text.trim().endsWith("Hard"))
+                    {
+                        //Log.d("txtLevel Equals Hard :",txtlevel.equals("hard").toString())
+                        editor.putString(Constants.HARD_HIGH_KEY,yourscoreInt.toString())
+                    }
+
+
+                    //Log.d("txtLevel NotworkPrint:",txtlevel.text.toString())
                     editor.apply()
                     txtmessage.text = "Congratulations you won the Game in "+level+" and also broke the previous high score record"
                 }

@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SuperHardLevelFragment"
+    android:background="@android:color/white"
     android:padding="20dp">
 
     <TextView
@@ -43,7 +44,6 @@
         android:layout_marginTop="100dp"
         android:id="@+id/superhardlevelview"
         android:layout_centerHorizontal="true" />
-
 
 
 </RelativeLayout>

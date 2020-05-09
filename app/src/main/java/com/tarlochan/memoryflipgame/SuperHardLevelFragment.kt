@@ -1,11 +1,13 @@
 package com.tarlochan.memoryflipgame
 
 import android.app.AlertDialog
+import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
 import android.view.*
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
@@ -90,6 +92,7 @@ public class SuperHardLevelFragment : Fragment() {
         model= ViewModelProviders.of(activity!!).get(Communicator::class.java)
         val rootView =
             inflater.inflate(R.layout.fragment_super_hard_level, container, false)
+
         SuperHardLevelRecyclerView = rootView.findViewById(R.id.superhardlevelview)
 
         b = Bundle()

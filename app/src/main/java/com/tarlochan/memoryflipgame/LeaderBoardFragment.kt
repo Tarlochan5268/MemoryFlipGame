@@ -53,7 +53,7 @@ public class LeaderBoardFragment : Fragment() {
         tveasyHS.text = easyBS.toString()+" seconds"
         var hardBS = pref.getString(Constants.HARD_HIGH_KEY,"42")
         tvhardHS.text = hardBS.toString()+" seconds"
-        var superhardBS = pref.getString(Constants.SUPER_HARD_HIGH_KEY,"52")
+        var superhardBS = pref.getString(Constants.SUPER_HARD_HIGH_KEY,"51")
         tvsuperhardHS.text = superhardBS.toString()+" seconds"
 
         btnBack.setOnClickListener{

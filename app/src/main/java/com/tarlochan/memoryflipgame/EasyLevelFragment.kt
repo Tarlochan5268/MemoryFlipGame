@@ -8,6 +8,7 @@ import android.os.CountDownTimer
 import android.os.Handler
 import android.util.Log
 import android.view.*
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
@@ -105,6 +106,7 @@ public class EasyLevelFragment : Fragment() {
 
         val rootView =
             inflater.inflate(R.layout.fragment_easy_level, container, false)
+
         EasyLevelRecyclerView = rootView.findViewById(R.id.easylevelview)
 
         b = Bundle()

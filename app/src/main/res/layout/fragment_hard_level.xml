@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HardLevelFragment"
+    android:background="@android:color/white"
     android:padding="20dp">
 
     <TextView
@@ -41,7 +42,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="100dp"
         android:id="@+id/hardlevelview"
         android:layout_centerHorizontal="true" />
