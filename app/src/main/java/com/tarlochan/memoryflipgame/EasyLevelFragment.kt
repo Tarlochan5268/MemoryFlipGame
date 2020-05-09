@@ -201,6 +201,14 @@ public class EasyLevelFragment : Fragment() {
                     isCancelled = true
                     fragmentManager!!.popBackStack()
                 }
+                pause.setNeutralButton("Shuffle")
+                {
+                    dialog, which ->
+                    val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
+                    transaction.replace(R.id.layoutFragment, EasyLevelFragment())
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                }
                 pause.show()
                 return@OnKeyListener true
             }
