@@ -9,6 +9,7 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.TextView
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -86,6 +87,7 @@ public class SuperHardLevelFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        model= ViewModelProviders.of(activity!!).get(Communicator::class.java)
         val rootView =
             inflater.inflate(R.layout.fragment_super_hard_level, container, false)
         SuperHardLevelRecyclerView = rootView.findViewById(R.id.superhardlevelview)
@@ -117,13 +119,13 @@ public class SuperHardLevelFragment : Fragment() {
                 if (isPaused || isCancelled) {
                     cancel()
                 } else {
+                    var time = 0
                     (rootView.findViewById<View>(R.id.superhardlevelcounter) as TextView).text =
                         "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
                     RemainingTime = millisUntilFinished
                     if (count == Constants.SUPER_HARD_NO_OF_CARDS) {
                         //b!!.putString("Data", "win")
-                        val time =
-                            (Constants.SUPER_HARD_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL
+                        time = ((Constants.EASY_TIME - millisUntilFinished) / Constants.TIMER_INTERVAL).toInt()
                         //b!!.putInt("Time", time.toInt())
 
                         model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Super Hard")

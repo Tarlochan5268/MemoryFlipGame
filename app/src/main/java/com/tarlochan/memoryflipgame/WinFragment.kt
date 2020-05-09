@@ -113,7 +113,18 @@ class WinFragment : Fragment() {
                 {
                     pref = context!!.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
                     val editor:SharedPreferences.Editor = pref.edit()
-                    editor.putString(Constants.EASY_HIGH_KEY,yourscoreInt.toString())
+                    if (txtlevel.equals("Easy"))
+                    {
+                        editor.putString(Constants.EASY_HIGH_KEY,yourscoreInt.toString())
+                    }
+                    else if (txtlevel.equals("Hard"))
+                    {
+                        editor.putString(Constants.HARD_HIGH_KEY,yourscoreInt.toString())
+                    }
+                    else if (txtlevel.equals("Super Hard"))
+                    {
+                        editor.putString(Constants.SUPER_HARD_HIGH_KEY,yourscoreInt.toString())
+                    }
                     editor.apply()
                     txtmessage.text = "Congratulations you won the Game in "+level+" and also broke the previous high score record"
                 }
