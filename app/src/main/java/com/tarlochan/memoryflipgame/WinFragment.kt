@@ -133,6 +133,31 @@ class WinFragment : Fragment() {
                     editor.apply()
                     txtmessage.text = "Congratulations \nyou won the Game in \n"+level+" and also \nbroke the previous high score record"
                 }
+                else
+                {
+                    pref = context!!.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
+                    val editor:SharedPreferences.Editor = pref.edit()
+                    if (txtlevel.text.trim().endsWith("Easy"))
+                    {
+                        //Log.d("txtLevel Equals Easy :",txtlevel.equals("Easy").toString())
+                        editor.putString(Constants.EASY_HIGH_KEY,yourscoreInt.toString())
+                    }else if (txtlevel.text.trim().endsWith("Super Hard"))
+                    {
+                        //Log.d("txtLevel Equals Shard:",txtlevel.equals("Super Hard").toString())
+                        editor.putString(Constants.SUPER_HARD_HIGH_KEY,yourscoreInt.toString())
+                    }
+                    else if (txtlevel.text.trim().endsWith("Hard"))
+                    {
+                        //Log.d("txtLevel Equals Hard :",txtlevel.equals("hard").toString())
+                        editor.putString(Constants.HARD_HIGH_KEY,yourscoreInt.toString())
+                    }
+
+
+                    //Log.d("txtLevel NotworkPrint:",txtlevel.text.toString())
+                    editor.apply()
+                    txtmessage.text = "Congratulations \nyou won the Game in \n"+level+" Mode"
+                }
+
             }
         })
 
