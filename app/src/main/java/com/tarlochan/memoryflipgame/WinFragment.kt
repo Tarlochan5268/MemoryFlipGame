@@ -131,7 +131,7 @@ class WinFragment : Fragment() {
 
                     //Log.d("txtLevel NotworkPrint:",txtlevel.text.toString())
                     editor.apply()
-                    txtmessage.text = "Congratulations you won the Game in "+level+" and also broke the previous high score record"
+                    txtmessage.text = "Congratulations \nyou won the Game in \n"+level+" and also \nbroke the previous high score record"
                 }
             }
         })

@@ -6,9 +6,11 @@
     android:layout_height="match_parent"
     android:id="@+id/layoutFragment"
     tools:context=".LoseFragment">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/gradientbg"
         tools:context=".WinFragment">
 
         <Button
@@ -16,7 +18,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@android:color/transparent"
-            android:foreground="@mipmap/home"
+            android:foreground="@drawable/homebtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,89 +28,101 @@
         <TextView
             android:id="@+id/txtHighScore"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text=""
+            android:layout_height="70dp"
+            android:layout_marginBottom="32dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/banner"
+            android:gravity="center"
+            android:text="High Score : "
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@+id/imageView2"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtYourScore" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="254dp"
-            android:layout_height="343dp"
-            android:layout_marginStart="77dp"
-            android:layout_marginTop="42dp"
-            android:layout_marginEnd="78dp"
-            android:layout_marginBottom="24dp"
-            android:src="@drawable/cardback"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtHighScore" />
-
         <TextView
             android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="170dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/cardback2"
+            android:gravity="center"
             android:text="Flip Card Game"
             android:textAlignment="center"
+            android:textAllCaps="false"
             android:textColor="@android:color/primary_text_dark"
-            android:textSize="45dp"
+            android:textSize="40dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.065" />
+            app:layout_constraintVertical_bias="0.069" />
 
         <TextView
             android:id="@+id/txtMessage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Wow Congratulations you Won the Game"
+            android:layout_height="150dp"
+            android:background="@drawable/rectangle"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:text="Congratulations \nyou Won the Game in \nSuper Hard Level and Also \nbroke the previous record"
             android:textAlignment="center"
+            android:textAllCaps="false"
             android:textColor="@android:color/holo_blue_light"
-            android:textSize="24sp"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/txtLevel"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
         <TextView
             android:id="@+id/txtLevel"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Level  :  "
+            android:layout_height="70dp"
+            android:background="@drawable/banner"
+            android:paddingBottom="10dp"
+            android:gravity="center"
+            android:text="Level  :  Easy "
             android:textAlignment="center"
+            android:textAllCaps="false"
             app:layout_constraintBottom_toTopOf="@+id/txtYourScore"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtMessage" />
 
         <TextView
             android:id="@+id/txtYourScore"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:text=""
+            android:layout_height="70dp"
+            android:background="@drawable/banner"
+            android:paddingBottom="10dp"
+            android:gravity="center"
+            android:text="Your Score : "
             android:textAlignment="center"
+            android:textAllCaps="false"
             app:layout_constraintBottom_toTopOf="@+id/txtHighScore"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtLevel" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:src="@drawable/giftimage"
+            app:layout_constraintBottom_toTopOf="@+id/txtMessage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
