@@ -9,6 +9,8 @@ This Game is Developed By Das Tarlochan Preet Singh
 - Goal of game is simple uncover the cards and find there match before the time ends 
 - Uses Json File to get Link to Images of cards
 - Many Modes(Easy,Hard,Super Hard,2 Player) to Play in the Game
+- Have feature to shuffle cards
+- Have a Pause Screen
 - Uses Media Player Class to play sound
 - Uses Shared Preferences to store high scores
 - Requires Internet as Images come from Shopify API Json(https://shopicruit.myshopify.com/admin/products.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6)
