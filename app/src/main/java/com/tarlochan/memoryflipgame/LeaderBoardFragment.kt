@@ -50,11 +50,11 @@ public class LeaderBoardFragment : Fragment() {
 
         var pref : SharedPreferences = context!!.getSharedPreferences(Constants.PREF_NAME, Context.MODE_PRIVATE)
         var easyBS = pref.getString(Constants.EASY_HIGH_KEY,"32")
-        tveasyHS.text = easyBS.toString()+" seconds"
+        tveasyHS.text = "Easy Level  :  "+easyBS.toString()+" seconds"
         var hardBS = pref.getString(Constants.HARD_HIGH_KEY,"42")
-        tvhardHS.text = hardBS.toString()+" seconds"
+        tvhardHS.text = "Hard Level  :  "+hardBS.toString()+" seconds"
         var superhardBS = pref.getString(Constants.SUPER_HARD_HIGH_KEY,"51")
-        tvsuperhardHS.text = superhardBS.toString()+" seconds"
+        tvsuperhardHS.text = "Super Hard Level  :  "+superhardBS.toString()+" seconds"
 
         btnBack.setOnClickListener{
             val fm: FragmentManager? = fragmentManager

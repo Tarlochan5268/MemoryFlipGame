@@ -74,7 +74,7 @@ class WinPlayerFragment : Fragment() {
                 winner = o!!.toString()
                 Log.d("level : ",level)
 
-                txtmessage.text = "Congratulations "+winner+" won the Game"
+                txtmessage.text = "Congratulations \n"+winner+" \nwon the Game"
             }
         })
         /*

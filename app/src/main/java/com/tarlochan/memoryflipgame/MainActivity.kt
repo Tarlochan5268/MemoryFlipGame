@@ -35,10 +35,10 @@ public class MainActivity : AppCompatActivity() {
 
         Log.d("Array List Products : ", mProductsList.toString())
 
-
-        window.requestFeature(Window.FEATURE_NO_TITLE)
+        supportActionBar?.hide()
+        //window.requestFeature(Window.FEATURE_NO_TITLE)
         //making this activity full screen
-        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        //window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_main)
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.layoutFragment, Home())
