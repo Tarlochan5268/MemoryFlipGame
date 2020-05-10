@@ -137,7 +137,7 @@ public class TwoPlayer : Fragment() {
                 } else {
 
                     (rootView.findViewById<View>(R.id.twoplayerlevelcounter) as TextView).text =
-                        "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
+                        "" + millisUntilFinished / Constants.TIMER_INTERVAL
                     RemainingTime = millisUntilFinished
                     if (count == Constants.PLAYER_TWO_NO_OF_CARDS) {
                         //b!!.putString("Data", "win")
@@ -151,6 +151,10 @@ public class TwoPlayer : Fragment() {
                         else if(player1count<player2count)
                         {
                             model!!.setMsgCommunicator(player2count.toString(),"Player 2",time.toString(),"Two Player")
+                        }
+                        else if(player1count == player2count)
+                        {
+                            model!!.setMsgCommunicator(player2count.toString(),"Draw",time.toString(),"Two Player")
                         }
                         //model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Two Player")
                         val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
@@ -174,6 +178,10 @@ public class TwoPlayer : Fragment() {
                     else if(player1count<player2count)
                     {
                         model!!.setMsgCommunicator(player2count.toString(),"Player 2",time.toString(),"Two Player")
+                    }
+                    else if(player1count == player2count)
+                    {
+                        model!!.setMsgCommunicator(player2count.toString(),"Draw",time.toString(),"Two Player")
                     }
                     //model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Two Player")
                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
@@ -209,7 +217,7 @@ public class TwoPlayer : Fragment() {
                                 cancel()
                             } else {
                                 (rootView.findViewById<View>(R.id.superhardlevelcounter) as TextView).text =
-                                    "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
+                                    "" + millisUntilFinished / Constants.TIMER_INTERVAL
                                 RemainingTime = millisUntilFinished
                                 if (count == Constants.PLAYER_TWO_NO_OF_CARDS) {
                                     //b!!.putString("Data", "win")
@@ -223,6 +231,10 @@ public class TwoPlayer : Fragment() {
                                     else if(player1count<player2count)
                                     {
                                         model!!.setMsgCommunicator(player2count.toString(),"Player 2",time.toString(),"Two Player")
+                                    }
+                                    else if(player1count == player2count)
+                                    {
+                                        model!!.setMsgCommunicator(player2count.toString(),"Draw",time.toString(),"Two Player")
                                     }
                                     //model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Two Player")
                                     val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()
@@ -247,6 +259,10 @@ public class TwoPlayer : Fragment() {
                                 else if(player1count<player2count)
                                 {
                                     model!!.setMsgCommunicator(player2count.toString(),"Player 2",time.toString(),"Two Player")
+                                }
+                                else if(player1count == player2count)
+                                {
+                                    model!!.setMsgCommunicator(player2count.toString(),"Draw",time.toString(),"Two Player")
                                 }
                                 //model!!.setMsgCommunicator(time.toString(),bestScore.toString(),"Two Player")
                                 val transaction: FragmentTransaction = fragmentManager!!.beginTransaction()

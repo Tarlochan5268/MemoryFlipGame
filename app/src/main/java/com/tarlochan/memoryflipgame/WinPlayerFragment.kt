@@ -72,9 +72,20 @@ class WinPlayerFragment : Fragment() {
         model.winner.observe(this, object : Observer<Any> {
             override fun onChanged(o: Any?) {
                 winner = o!!.toString()
-                Log.d("level : ",level)
+                Log.d("Winner : ",winner)
+                if(winner.trim().endsWith("Player 1"))
+                {
+                    txtmessage.text = "Congratulations \n Player One \nwon the Game"
+                }
+                else if(winner.trim().endsWith("Player 2"))
+                {
+                    txtmessage.text = "Congratulations \n Player Two \nwon the Game"
+                }
+                else
+                {
+                    txtmessage.text = "Congratulations \n The Match is Drawn \nNo one won the Match"
+                }
 
-                txtmessage.text = "Congratulations \n"+winner+" \nwon the Game"
             }
         })
         /*

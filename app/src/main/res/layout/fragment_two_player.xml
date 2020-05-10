@@ -4,13 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TwoPlayer"
-    android:background="@android:color/black"
+    android:background="@drawable/gradientbg"
     android:padding="20dp">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:background="@drawable/panelbg"
+        android:gravity="center"
+        android:layout_marginBottom="20dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Player 1 Turn"
+        android:layout_margin="10dp"
         android:fontFamily="sans-serif-light"
         android:textColor="@android:color/white"
         android:id="@+id/player1"
@@ -20,7 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Match : 0"
-        android:paddingLeft="20dp"
+        android:layout_margin="10dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/player1levelScore"
         android:fontFamily="sans-serif-light"
@@ -28,29 +35,34 @@
         android:textSize="20dp"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:text="Time : 0:15"
-        android:id="@+id/twoplayerlevelcounter"
-        android:fontFamily="sans-serif-light"
-        android:textColor="@color/colorAccent"
-        android:textSize="20dp"
-        />
+        <TextView
+            android:id="@+id/twoplayerlevelcounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:gravity="center"
+
+            android:background="@drawable/time"
+            android:fontFamily="sans-serif-light"
+            android:text="15"
+            android:textColor="@color/colorAccent"
+            android:textSize="16dp" />
+    </LinearLayout>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="100dp"
         android:background="@android:color/white"
         android:id="@+id/twoplayerlevelview"
         android:layout_centerHorizontal="true" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="100dp"
         android:orientation="horizontal"
-        android:paddingTop="60dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:background="@drawable/panelbg"
         android:layout_below="@id/twoplayerlevelview">
         <TextView
             android:layout_alignParentBottom="true"

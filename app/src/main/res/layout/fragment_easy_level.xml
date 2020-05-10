@@ -5,9 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".EasyLevelFragment"
-    android:background="@android:color/black"
+    android:background="@drawable/gradientbg"
     android:padding="20dp">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:orientation="horizontal"
+    android:background="@drawable/panelbg"
+    android:textAlignment="center"
+    android:gravity="center"
+    android:layout_marginBottom="20dp">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -15,13 +22,14 @@
         android:fontFamily="sans-serif-light"
         android:textColor="@android:color/white"
         android:id="@+id/bestEasy"
+        android:layout_margin="10dp"
         android:layout_alignParentStart="true"
         android:textSize="18dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="15dp"
         android:text="Match : 0"
-        android:paddingLeft="20dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/easylevelScore"
         android:fontFamily="sans-serif-light"
@@ -30,15 +38,20 @@
         />
 
     <TextView
+        android:id="@+id/easylevelcounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:text="Time : 0:15"
-        android:id="@+id/easylevelcounter"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:background="@drawable/time"
         android:fontFamily="sans-serif-light"
+        android:text="15"
         android:textColor="@color/colorAccent"
-        android:textSize="20dp"
+        android:textSize="16dp"
         />
+
+</LinearLayout>
 
 
     <androidx.recyclerview.widget.RecyclerView

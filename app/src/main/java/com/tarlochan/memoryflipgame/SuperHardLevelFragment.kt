@@ -124,7 +124,7 @@ public class SuperHardLevelFragment : Fragment() {
                 } else {
                     var time = 0
                     (rootView.findViewById<View>(R.id.superhardlevelcounter) as TextView).text =
-                        "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
+                        "" + millisUntilFinished / Constants.TIMER_INTERVAL
                     RemainingTime = millisUntilFinished
                     if (count == Constants.SUPER_HARD_NO_OF_CARDS) {
                         //b!!.putString("Data", "win")
@@ -179,7 +179,7 @@ public class SuperHardLevelFragment : Fragment() {
                                 cancel()
                             } else {
                                 (rootView.findViewById<View>(R.id.superhardlevelcounter) as TextView).text =
-                                    "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
+                                    "" + millisUntilFinished / Constants.TIMER_INTERVAL
                                 RemainingTime = millisUntilFinished
                                 if (count == Constants.SUPER_HARD_NO_OF_CARDS) {
                                     //b!!.putString("Data", "win")

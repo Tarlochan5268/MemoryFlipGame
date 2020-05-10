@@ -138,7 +138,7 @@ public class EasyLevelFragment : Fragment() {
                     cancel()
                 } else {
                     (rootView.findViewById<View>(R.id.easylevelcounter) as TextView).text =
-                        "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
+                        "" + millisUntilFinished / Constants.TIMER_INTERVAL
                     RemainingTime = millisUntilFinished
                     if (count == Constants.EASY_NO_OF_CARDS) {
                         //b!!.putString("Data", "win")
@@ -196,7 +196,7 @@ public class EasyLevelFragment : Fragment() {
                                 cancel()
                             } else {
                                 (rootView.findViewById<View>(R.id.easylevelcounter) as TextView).text =
-                                    "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
+                                    "" + millisUntilFinished / Constants.TIMER_INTERVAL
                                 RemainingTime = millisUntilFinished
                                 if (count == Constants.EASY_NO_OF_CARDS) {
                                     //b!!.putString("Data", "win")

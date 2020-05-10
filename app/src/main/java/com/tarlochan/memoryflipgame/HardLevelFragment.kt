@@ -115,7 +115,7 @@ public class HardLevelFragment : Fragment() {
                     cancel()
                 } else {
                     (rootView.findViewById<View>(R.id.hardlevelcounter) as TextView).text =
-                        "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
+                        "" + millisUntilFinished / Constants.TIMER_INTERVAL
                     RemainingTime = millisUntilFinished
                     if (count == Constants.HARD_NO_OF_CARDS) {
                         //b!!.putString("Data", "win")
@@ -171,7 +171,7 @@ public class HardLevelFragment : Fragment() {
                                 cancel()
                             } else {
                                 (rootView.findViewById<View>(R.id.hardlevelcounter) as TextView).text =
-                                    "Time : " + millisUntilFinished / Constants.TIMER_INTERVAL
+                                    "" + millisUntilFinished / Constants.TIMER_INTERVAL
                                 RemainingTime = millisUntilFinished
                                 if (count == Constants.HARD_NO_OF_CARDS) {
                                     //b!!.putString("Data", "win")
