@@ -9,5 +9,5 @@ Splash Screen
 src="Screenshots/SplashScreen.png"
 raw=true
 alt="Splash Screen"
-style="margin-right: 10px;"
+style="margin-right: 10px;width="100dp";height="200dp"
 />
