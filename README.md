@@ -7,7 +7,7 @@ This Game is Developed By Das Tarlochan Preet Singh
 - UI Designed in Adobe XD
 - Made using Kotlin and Java
 - Goal of game is simple uncover the cards and find there match before the time ends 
-- Uses Json File to get Link to Images of cards
+- Uses Json File to get Link to Images of cards using Glide Library
 - Many Modes(Easy,Hard,Super Hard,2 Player) to Play in the Game
 - Have feature to shuffle cards
 - Have a Pause Screen
