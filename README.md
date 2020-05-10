@@ -11,7 +11,7 @@ This Game is Developed By Das Tarlochan Preet Singh
 - Many Modes(Easy,Hard,Super Hard,2 Player) to Play in the Game
 - Uses Media Player Class to play sound
 - Uses Shared Preferences to store high scores
-- Requires Internet as Images come from Shopify API Json(shorturl.at/fhnW6)
+- Requires Internet as Images come from Shopify API Json(https://shopicruit.myshopify.com/admin/products.json?page=1&access_token=c32313df0d0ef512ca64d5b336a0d7c6)
 - Uses Data View Model to pass data between screens
 - Uses Custom Flip View for cards to flip in the game (https://github.com/wajahatkarim3/EasyFlipView)
 - In Easy, Hard and Super hard Mode user play in 1 Player Mode, here user has to find all cards before time ends
