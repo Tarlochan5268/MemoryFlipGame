@@ -4,13 +4,16 @@ This Game is Developed By Das Tarlochan Preet Singh
 
 # Features
 - Made in Android Studio
+- UI Designed in Adobe XD
 - Made using Kotlin and Java
 - Goal of game is simple uncover the cards and find there match before the time ends 
 - Uses Json File to get Link to Images of cards
-- Many Modes to Play in the Game
+- Many Modes(Easy,Hard,Super Hard,2 Player) to Play in the Game
 - Uses Media Player Class to play sound
 - Uses Shared Preferences to store high scores
-- Requires Internet as Images come from API Json
+- Requires Internet as Images come from Shopify API Json(shorturl.at/fhnW6)
+- Uses Data View Model to pass data between screens
+- Uses Custom Flip View for cards to flip in the game (https://github.com/wajahatkarim3/EasyFlipView)
 - In Easy, Hard and Super hard Mode user play in 1 Player Mode, here user has to find all cards before time ends
 - In 2 Player Mode , Two players compete against each other the player who finds most card matches wins the match.
 
